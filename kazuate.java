@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class NumberGuessingGame {
+public class kazuate {
     public static void main(String[] args) {
         int targetNumber = (int) (Math.random() * 90) + 10; // 10から99の範囲でランダムな数を生成
         int attempts = 0;
