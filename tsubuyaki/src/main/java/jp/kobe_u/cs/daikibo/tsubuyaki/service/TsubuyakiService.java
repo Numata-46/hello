@@ -1,6 +1,6 @@
 package jp.kobe_u.cs.daikibo.tsubuyaki.service;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +21,7 @@ public class TsubuyakiService {
         if (name==null || name.length()==0) {
             t.setName("名無しさん");
         }
-        t.setCreatedAt(new Date(0));  //作成日時をセット
+        t.setCreatedAt(new Date());  //作成日時をセット
         return repo.save(t); //セーブしたオブジェクトを返却
     }
 
