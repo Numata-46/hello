@@ -2,7 +2,7 @@ package jp.kobe_u.cs.daikibo.tsubuyaki.entity;
 
 import lombok.Data;
 import javax.persistence.Entity;
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Temporal;
