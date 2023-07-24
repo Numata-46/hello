@@ -9,7 +9,6 @@ import java.util.List;
 
 @Repository  
 public interface TsubuyakiRepository extends CrudRepository<Tsubuyaki, Long>{
-
-    // コメントに基づいてつぶやきを検索するカスタムクエリ
-    List<Tsubuyaki> findByComment(String comment);
+    // コメントの部分一致検索（大文字小文字を区別しない）
+    List<Tsubuyaki> findByCommentContainingIgnoreCase(String keyword);
 }
