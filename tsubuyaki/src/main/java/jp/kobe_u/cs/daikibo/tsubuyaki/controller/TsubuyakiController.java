@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import jp.kobe_u.cs.daikibo.tsubuyaki.entity.Tsubuyaki;
 import jp.kobe_u.cs.daikibo.tsubuyaki.service.TsubuyakiService;
@@ -41,5 +42,14 @@ public class TsubuyakiController {
         //サービスに投稿処理を依頼
         ts.postTsubuyaki(t);
         return "redirect:/read"; //メイン画面に転送
+    }
+
+    //つぶやきを検索
+    @GetMapping("/search")
+    String searchTsubuyaki(@RequestParam("keyword") String keyword, Model model) {
+        List<Tsubuyaki> searchResult = ts.searchTsubuyaki(keyword); // キーワードでつぶやきを検索
+        model.addAttribute("tsubuyakiList", searchResult); // 検索結果をモデル属性にセット
+        model.addAttribute("tsubuyakiForm", new TsubuyakiForm()); // 空フォームをセット
+        return "tsubuyaki_list"; // 検索結果を表示するリスト画面を返す
     }
 }
